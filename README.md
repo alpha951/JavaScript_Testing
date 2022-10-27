@@ -1,6 +1,6 @@
 # JavaScript_Testing
 Created by Keshav Carpenter
-<h3>Follow these commands to run the project locally.</h3>
+<h3>Follow these commands to test the Repo locally.</h3>
 <ol>
 <li>npm install</li>
 <li>npm test</li>
