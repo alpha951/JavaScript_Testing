@@ -1,0 +1,14 @@
+{
+  "name": "assesment",
+  "version": "1.0.0",
+  "description": "javascript assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Keshav Carpenter",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.2.2"
+  }
+}
