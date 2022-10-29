@@ -35,6 +35,15 @@ function solution(D) {
         sol = { ...sol, ...obj };
     }
 
+    // assigning -1 value to those keys which were not present in the input
+     for (let i = 0; i < 7; i++) {
+        if (!sol[days[i]]) {
+            let obj = { [days[i]]: -1 }
+            sol = { ...sol, ...obj };
+        }
+    }
+    
+    // map for sorting the output form Mon to Sun
     const sorter = {
         'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6,
         'Sun': 7
@@ -55,6 +64,31 @@ function solution(D) {
         orderedData[obj.key] = obj.value;
     });
 
+    
+    // assigning mean value of prev and next day value to those keys which were not presenr in the input
+    for (let i = 0; i < 7; i++) {
+        if (orderedData[days[i]] == -1) {
+            let k = -1;
+            for (let j = i; j < 7; j++) {
+                if (orderedData[days[j]] != -1) {
+                    k = j;
+                    break;
+                }
+            }
+            if (k != -1) {
+
+                let diff = parseInt(Math.abs(orderedData[days[i-1]] - orderedData[days[k]]) / (k - i + 1));
+
+                while (orderedData[days[i]] == -1) {
+                    orderedData[days[i]] = orderedData[days[i - 1]] + diff;
+                    i++;
+                }
+
+            }
+        }
+    }
+    
+    
     return orderedData;
 }
 
